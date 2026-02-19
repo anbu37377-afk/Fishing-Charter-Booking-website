@@ -60,10 +60,11 @@
       });
     }
 
+    const isMobile = window.innerWidth < 768;
     const tl = gsap.timeline();
     tl.fromTo(
       panel,
-      { x: 82, y: 12, opacity: 0, rotate: 3 },
+      { x: isMobile ? 24 : 82, y: 12, opacity: 0, rotate: isMobile ? 1 : 3 },
       { x: 0, y: 0, opacity: 1, rotate: 0, duration: 0.8, ease: 'power3.out' }
     )
       .fromTo(

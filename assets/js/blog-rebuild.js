@@ -16,9 +16,9 @@
           .split('')
           .map((char) => `<span class="blog-hero-letter inline-block">${char}</span>`)
           .join('');
-        return `<span class="inline-block whitespace-nowrap">${letters}</span>`;
+        return `<span class="inline whitespace-nowrap">${letters}</span>`;
       })
-      .join('<span class="inline-block">&nbsp;</span>');
+      .join(' ');
   }
 
   function initEditorialHero() {

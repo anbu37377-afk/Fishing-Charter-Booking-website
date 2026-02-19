@@ -14,8 +14,7 @@
     document.querySelectorAll('[data-nav-link]').forEach((link) => {
       const href = (link.getAttribute('href') || '').toLowerCase();
       const active = href === current || (current === '' && href === 'index.html');
-      link.classList.toggle('text-sky-200', active);
-      link.classList.toggle('border-sky-300/40', active);
+      link.classList.toggle('nav-link-active', active);
     });
   }
 

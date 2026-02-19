@@ -377,6 +377,17 @@
         }
       });
     }
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        if (window.SiteCore) {
+          SiteCore.toast('Logging out...', 'info');
+        }
+        setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 800);
+      });
+    }
   }
 
   function initDashboard() {

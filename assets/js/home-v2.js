@@ -154,6 +154,8 @@
         }
       );
 
+      // Disabled parallax to prevent overlap in Bento Grid layout
+      /*
       if (window.ScrollTrigger) {
         gsap.to(card, {
           yPercent: index === 0 ? 8 : index === 1 ? -10 : 12,
@@ -166,6 +168,7 @@
           }
         });
       }
+      */
     });
   }
 

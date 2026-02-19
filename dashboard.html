@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="antialiased">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unified Dashboard | Aurelius Charters</title>
-  <meta name="description" content="Unified captain and customer dashboard for luxury fishing charter booking, analytics, and availability management." />
+  <meta name="description"
+    content="Unified captain and customer dashboard for luxury fishing charter booking, analytics, and availability management." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -28,28 +32,52 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" />
   <link rel="stylesheet" href="assets/css/app.css" />
 </head>
+
 <body class="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
   <div class="relative min-h-screen overflow-x-clip lg:pl-72">
-    <aside id="dashboard-sidebar" class="sidebar-anchor fixed inset-y-0 left-0 z-50 w-72 -translate-x-full border-r border-slate-200/10 bg-slate-950/95 p-4 transition-transform duration-300 lg:translate-x-0">
-      <div class="flex items-center justify-between border-b border-slate-200/10 pb-4">
+    <aside id="dashboard-sidebar"
+      class="sidebar-anchor fixed inset-y-0 left-0 z-50 w-72 -translate-x-full border-r border-slate-200/15 bg-slate-50 shadow-2xl dark:bg-[#0B1221] p-4 transition-transform duration-300 lg:translate-x-0">
+      <div class="flex items-center justify-between border-b border-slate-200/15 pb-4">
         <a href="index.html" class="flex items-center gap-2">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
-            <svg viewBox="0 0 24 24" class="h-4 w-4 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+          <span
+            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-400/20 ring-1 ring-sky-400/30">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 text-sky-600 dark:text-sky-100" fill="none" stroke="currentColor"
+              stroke-width="1.8">
               <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
             </svg>
           </span>
-          <span class="font-display text-sm font-semibold tracking-[0.22em] text-sky-100">AURELIUS</span>
+          <span
+            class="font-display text-sm font-semibold tracking-[0.22em] text-slate-900 dark:text-sky-100">AURELIUS</span>
         </a>
-        <button id="sidebar-close" class="rounded-lg border border-slate-600 px-2 py-1 text-xs lg:hidden">Close</button>
+        <button id="sidebar-close"
+          class="rounded-lg border border-slate-300 dark:border-slate-600 px-2 py-1 text-xs lg:hidden">Close</button>
       </div>
 
       <div class="mt-6 space-y-2 text-sm">
-        <button data-nav-target="overview" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Overview</button>
-        <button data-role-only="captain" data-nav-target="availability" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Availability Calendar</button>
-        <button data-role-only="customer" data-nav-target="bookings" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">My Bookings</button>
-        <button data-nav-target="analytics" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Earnings & Analytics</button>
-        <button data-nav-target="trip-management" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Trip Management</button>
-        <button data-nav-target="settings" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Profile & Settings</button>
+        <button data-nav-target="overview"
+          class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-left hover:border-sky-300/40">Overview</button>
+        <button data-role-only="captain" data-nav-target="availability"
+          class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-left hover:border-sky-300/40">Availability
+          Calendar</button>
+        <button data-role-only="customer" data-nav-target="bookings"
+          class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-left hover:border-sky-300/40">My
+          Bookings</button>
+        <button data-nav-target="analytics"
+          class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-left hover:border-sky-300/40">Earnings
+          & Analytics</button>
+        <button data-nav-target="trip-management"
+          class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-left hover:border-sky-300/40">Trip
+          Management</button>
+        <button data-nav-target="settings"
+          class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-left hover:border-sky-300/40">Profile
+          & Settings</button>
+        <button id="logout-btn"
+          class="w-full mt-4 flex items-center justify-between rounded-xl border border-rose-200/50 dark:border-rose-500/30 bg-rose-50/50 dark:bg-rose-500/10 px-3 py-2 text-left text-rose-600 dark:text-rose-400 hover:border-rose-400 transition-all">
+          <span>Logout</span>
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7 14l5-5-5-5m5 5H9" />
+          </svg>
+        </button>
       </div>
 
       <div class="mt-8 rounded-2xl border border-sky-300/30 bg-sky-400/10 p-4 text-xs text-sky-100">
@@ -57,30 +85,43 @@
       </div>
     </aside>
 
-    <header class="sticky top-0 z-30 border-b border-slate-200/10 bg-slate-950/90 px-4 py-3 backdrop-blur sm:px-6">
-      <div class="mx-auto flex max-w-7xl 2xl:max-w-[90rem] flex-wrap items-center justify-between gap-3 lg:flex-nowrap lg:overflow-x-auto lg:whitespace-nowrap">
-        <div class="flex items-center gap-3">
-          <button id="sidebar-open" class="rounded-xl border border-slate-600 px-3 py-2 text-xs lg:hidden">Menu</button>
-          <a href="index.html" class="inline-flex items-center gap-2 rounded-xl border border-slate-600 px-3 py-2 text-xs whitespace-nowrap">
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
-              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+    <header class="sticky top-0 z-30 border-b border-slate-200/15 bg-slate-50 dark:bg-[#0B1221] px-4 py-3 sm:px-6">
+      <div class="mx-auto flex max-w-7xl 2xl:max-w-[90rem] items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <button id="sidebar-open"
+            class="rounded-xl border border-slate-300 dark:border-slate-600 px-3 py-2 text-xs lg:hidden">Menu</button>
+          <a href="index.html"
+            class="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-600 px-2 sm:px-3 py-2 text-xs whitespace-nowrap bg-white dark:bg-slate-950/20 shadow-sm">
+            <span
+              class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-sky-400/20 ring-1 ring-sky-400/30">
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-sky-600 dark:text-sky-100" fill="none"
+                stroke="currentColor" stroke-width="1.8">
                 <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
               </svg>
             </span>
-            <span class="font-display tracking-[0.16em]">AURELIUS</span>
+            <span
+              class="font-display tracking-[0.16em] text-slate-900 dark:text-sky-100 hidden sm:inline">AURELIUS</span>
           </a>
-          <a href="index-v2.html" class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Home V2</a>
-          <a href="login.html" class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Login</a>
-          <a href="signup.html" class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Sign Up</a>
         </div>
 
-        <div class="flex flex-wrap items-center gap-2 lg:flex-nowrap">
-          <div class="flex rounded-xl border border-slate-600/80 bg-slate-900/60 p-1 text-xs">
-            <button data-role-toggle="captain" class="rounded-lg border border-slate-700/50 px-3 py-1.5">Captain</button>
-            <button data-role-toggle="customer" class="rounded-lg border border-slate-700/50 px-3 py-1.5">Customer</button>
+        <div class="flex items-center gap-2">
+          <div
+            class="flex rounded-xl border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-950/40 p-1 text-[10px] sm:text-xs">
+            <button data-role-toggle="captain" class="rounded-lg px-1.5 sm:px-3 py-1.5 transition-all">Captain</button>
+            <button data-role-toggle="customer"
+              class="rounded-lg px-1.5 sm:px-3 py-1.5 transition-all">Customer</button>
           </div>
 
-          <button data-toggle-theme class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Theme: <span data-theme-label>Dark</span></button>
+          <button data-toggle-theme
+            class="p-2 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-950/40 shadow-sm shrink-0"
+            title="Toggle Theme">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 text-slate-600 dark:text-sky-100" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path class="dark:hidden"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z" />
+              <path class="hidden dark:block" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </button>
         </div>
       </div>
     </header>
@@ -127,13 +168,18 @@
             <h2 class="font-display text-2xl font-bold">Availability Calendar</h2>
           </div>
           <div class="flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-slate-300">
-            <span class="inline-flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-emerald-400"></span>Available</span>
-            <span class="inline-flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-red-400"></span>Booked</span>
-            <span class="inline-flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-amber-400"></span>Limited</span>
+            <span class="inline-flex items-center gap-2"><span
+                class="h-3 w-3 rounded-full bg-emerald-400"></span>Available</span>
+            <span class="inline-flex items-center gap-2"><span
+                class="h-3 w-3 rounded-full bg-red-400"></span>Booked</span>
+            <span class="inline-flex items-center gap-2"><span
+                class="h-3 w-3 rounded-full bg-amber-400"></span>Limited</span>
           </div>
         </div>
 
-        <article class="fullcalendar-skin calendar-rtl rounded-3xl border border-slate-200/10 bg-slate-900/55 p-4 sm:p-6" data-fade>
+        <article
+          class="fullcalendar-skin calendar-rtl rounded-3xl border border-slate-200/10 bg-slate-900/55 p-4 sm:p-6"
+          data-fade>
           <div id="availability-calendar"></div>
         </article>
       </section>
@@ -161,12 +207,18 @@
                 <td class="px-3 py-3">Blue Marlin Quest</td>
                 <td class="px-3 py-3">Elias Ward</td>
                 <td class="px-3 py-3">2026-03-04</td>
-                <td class="px-3 py-3"><span class="status-badge rounded-full border border-emerald-300/50 bg-emerald-500/15 px-2 py-1 text-xs">Confirmed</span></td>
-                <td class="px-3 py-3"><span class="status-badge rounded-full border border-amber-300/50 bg-amber-500/15 px-2 py-1 text-xs">Deposit Paid</span></td>
+                <td class="px-3 py-3"><span
+                    class="status-badge rounded-full border border-emerald-300/50 bg-emerald-500/15 px-2 py-1 text-xs">Confirmed</span>
+                </td>
+                <td class="px-3 py-3"><span
+                    class="status-badge rounded-full border border-amber-300/50 bg-amber-500/15 px-2 py-1 text-xs">Deposit
+                    Paid</span></td>
                 <td class="px-3 py-3">
                   <div class="flex flex-wrap gap-2">
-                    <button data-trip-action="cancel" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Cancel</button>
-                    <button data-trip-action="reschedule" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Reschedule</button>
+                    <button data-trip-action="cancel" data-trip-label="Blue Marlin Quest"
+                      class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Cancel</button>
+                    <button data-trip-action="reschedule" data-trip-label="Blue Marlin Quest"
+                      class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Reschedule</button>
                   </div>
                 </td>
               </tr>
@@ -174,12 +226,18 @@
                 <td class="px-3 py-3">Sunset Prestige</td>
                 <td class="px-3 py-3">Nia Solis</td>
                 <td class="px-3 py-3">2026-03-17</td>
-                <td class="px-3 py-3"><span class="status-badge rounded-full border border-cyan-300/50 bg-cyan-500/15 px-2 py-1 text-xs">Pending</span></td>
-                <td class="px-3 py-3"><span class="status-badge rounded-full border border-slate-300/50 bg-slate-500/15 px-2 py-1 text-xs">Pending</span></td>
+                <td class="px-3 py-3"><span
+                    class="status-badge rounded-full border border-cyan-300/50 bg-cyan-500/15 px-2 py-1 text-xs">Pending</span>
+                </td>
+                <td class="px-3 py-3"><span
+                    class="status-badge rounded-full border border-slate-300/50 bg-slate-500/15 px-2 py-1 text-xs">Pending</span>
+                </td>
                 <td class="px-3 py-3">
                   <div class="flex flex-wrap gap-2">
-                    <button data-trip-action="cancel" data-trip-label="Sunset Prestige" class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Cancel</button>
-                    <button data-trip-action="reschedule" data-trip-label="Sunset Prestige" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Reschedule</button>
+                    <button data-trip-action="cancel" data-trip-label="Sunset Prestige"
+                      class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Cancel</button>
+                    <button data-trip-action="reschedule" data-trip-label="Sunset Prestige"
+                      class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Reschedule</button>
                   </div>
                 </td>
               </tr>
@@ -226,20 +284,28 @@
               <p class="text-sm font-semibold">Marlin Tournament Run</p>
               <p class="mt-1 text-xs text-slate-300">Guest: Emma Carter - 2026-03-08</p>
               <div class="mt-3 flex flex-wrap gap-2">
-                <button data-trip-action="accept" data-trip-label="Marlin Tournament Run" class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Accept</button>
-                <button data-trip-action="reject" data-trip-label="Marlin Tournament Run" class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Reject</button>
-                <button data-trip-action="message" data-trip-label="Marlin Tournament Run" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Message</button>
-                <button data-trip-action="complete" data-trip-label="Marlin Tournament Run" class="rounded-lg border border-amber-300/40 px-2 py-1 text-xs">Mark Completed</button>
+                <button data-trip-action="accept" data-trip-label="Marlin Tournament Run"
+                  class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Accept</button>
+                <button data-trip-action="reject" data-trip-label="Marlin Tournament Run"
+                  class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Reject</button>
+                <button data-trip-action="message" data-trip-label="Marlin Tournament Run"
+                  class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Message</button>
+                <button data-trip-action="complete" data-trip-label="Marlin Tournament Run"
+                  class="rounded-lg border border-amber-300/40 px-2 py-1 text-xs">Mark Completed</button>
               </div>
             </div>
             <div class="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
               <p class="text-sm font-semibold">Offshore Elite Session</p>
               <p class="mt-1 text-xs text-slate-300">Guest: Noah Bennett - 2026-03-11</p>
               <div class="mt-3 flex flex-wrap gap-2">
-                <button data-trip-action="accept" data-trip-label="Offshore Elite Session" class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Accept</button>
-                <button data-trip-action="reject" data-trip-label="Offshore Elite Session" class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Reject</button>
-                <button data-trip-action="message" data-trip-label="Offshore Elite Session" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Message</button>
-                <button data-trip-action="complete" data-trip-label="Offshore Elite Session" class="rounded-lg border border-amber-300/40 px-2 py-1 text-xs">Mark Completed</button>
+                <button data-trip-action="accept" data-trip-label="Offshore Elite Session"
+                  class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Accept</button>
+                <button data-trip-action="reject" data-trip-label="Offshore Elite Session"
+                  class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Reject</button>
+                <button data-trip-action="message" data-trip-label="Offshore Elite Session"
+                  class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Message</button>
+                <button data-trip-action="complete" data-trip-label="Offshore Elite Session"
+                  class="rounded-lg border border-amber-300/40 px-2 py-1 text-xs">Mark Completed</button>
               </div>
             </div>
           </div>
@@ -251,17 +317,23 @@
             <div class="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
               <p class="text-sm font-semibold">Blue Marlin Quest</p>
               <div class="mt-3 flex flex-wrap gap-2">
-                <button data-trip-action="invoice" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Download Invoice</button>
-                <button data-trip-action="review" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Leave Review</button>
-                <button data-trip-action="details" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-slate-300/40 px-2 py-1 text-xs">Trip Details</button>
+                <button data-trip-action="invoice" data-trip-label="Blue Marlin Quest"
+                  class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Download Invoice</button>
+                <button data-trip-action="review" data-trip-label="Blue Marlin Quest"
+                  class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Leave Review</button>
+                <button data-trip-action="details" data-trip-label="Blue Marlin Quest"
+                  class="rounded-lg border border-slate-300/40 px-2 py-1 text-xs">Trip Details</button>
               </div>
             </div>
             <div class="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
               <p class="text-sm font-semibold">Sunset Prestige</p>
               <div class="mt-3 flex flex-wrap gap-2">
-                <button data-trip-action="invoice" data-trip-label="Sunset Prestige" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Download Invoice</button>
-                <button data-trip-action="review" data-trip-label="Sunset Prestige" class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Leave Review</button>
-                <button data-trip-action="details" data-trip-label="Sunset Prestige" class="rounded-lg border border-slate-300/40 px-2 py-1 text-xs">Trip Details</button>
+                <button data-trip-action="invoice" data-trip-label="Sunset Prestige"
+                  class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Download Invoice</button>
+                <button data-trip-action="review" data-trip-label="Sunset Prestige"
+                  class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Leave Review</button>
+                <button data-trip-action="details" data-trip-label="Sunset Prestige"
+                  class="rounded-lg border border-slate-300/40 px-2 py-1 text-xs">Trip Details</button>
               </div>
             </div>
           </div>
@@ -278,7 +350,9 @@
           <article class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-6" data-fade>
             <h3 class="font-display text-xl font-semibold">Edit Profile</h3>
             <div class="mt-4 flex flex-wrap items-center gap-4">
-              <img id="avatar-preview" src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=240&q=80&fm=webp" alt="Avatar preview" class="h-20 w-20 rounded-full object-cover ring-2 ring-sky-300/40" />
+              <img id="avatar-preview"
+                src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=240&q=80&fm=webp"
+                alt="Avatar preview" class="h-20 w-20 rounded-full object-cover ring-2 ring-sky-300/40" />
               <label class="rounded-xl border border-slate-500 px-3 py-2 text-xs cursor-pointer">
                 Upload Avatar
                 <input id="avatar-upload" type="file" accept="image/*" class="hidden" />
@@ -286,24 +360,35 @@
             </div>
 
             <form class="mt-5 grid gap-3 sm:grid-cols-2" data-demo-form>
-              <input type="text" placeholder="First name" class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
-              <input type="text" placeholder="Last name" class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
-              <input type="email" placeholder="Email" class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm sm:col-span-2" />
-              <button type="submit" class="sm:col-span-2 rounded-xl border border-sky-300/40 bg-sky-300/10 px-4 py-2 text-sm">Save Profile</button>
+              <input type="text" placeholder="First name"
+                class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <input type="text" placeholder="Last name"
+                class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <input type="email" placeholder="Email"
+                class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm sm:col-span-2" />
+              <button type="submit"
+                class="sm:col-span-2 rounded-xl border border-sky-300/40 bg-sky-300/10 px-4 py-2 text-sm">Save
+                Profile</button>
             </form>
           </article>
 
           <article class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-6" data-fade>
             <h3 class="font-display text-xl font-semibold">Security & Display</h3>
             <form id="password-form" class="mt-4 space-y-3">
-              <input type="password" required placeholder="Current password" class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
-              <input type="password" required placeholder="New password" class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
-              <input type="password" required placeholder="Confirm new password" class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
-              <button type="submit" class="w-full rounded-xl border border-emerald-300/40 bg-emerald-300/10 px-4 py-2 text-sm">Change Password</button>
+              <input type="password" required placeholder="Current password"
+                class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <input type="password" required placeholder="New password"
+                class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <input type="password" required placeholder="Confirm new password"
+                class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <button type="submit"
+                class="w-full rounded-xl border border-emerald-300/40 bg-emerald-300/10 px-4 py-2 text-sm">Change
+                Password</button>
             </form>
 
             <div class="mt-5 grid gap-3 sm:grid-cols-2">
-              <button data-toggle-theme class="rounded-xl border border-slate-500 px-3 py-2 text-sm">Toggle Dark Mode</button>
+              <button data-toggle-theme class="rounded-xl border border-slate-500 px-3 py-2 text-sm">Toggle Dark
+                Mode</button>
               <button data-toggle-rtl class="rounded-xl border border-slate-500 px-3 py-2 text-sm">Toggle RTL</button>
             </div>
           </article>
@@ -311,14 +396,7 @@
       </section>
     </main>
 
-    <nav class="fixed inset-x-3 bottom-3 z-40 rounded-2xl border border-slate-200/15 bg-slate-900/90 p-2 backdrop-blur lg:hidden">
-      <div class="grid grid-cols-4 gap-2 text-[11px] uppercase tracking-[0.16em]">
-        <button data-nav-target="overview" class="rounded-lg bg-slate-800/70 px-2 py-2">Overview</button>
-        <button data-nav-target="analytics" class="rounded-lg bg-slate-800/70 px-2 py-2">Analytics</button>
-        <button data-nav-target="trip-management" class="rounded-lg bg-slate-800/70 px-2 py-2">Trips</button>
-        <button data-nav-target="settings" class="rounded-lg bg-slate-800/70 px-2 py-2">Settings</button>
-      </div>
-    </nav>
+
 
     <div id="availability-editor" class="fixed inset-0 z-[95] hidden bg-slate-950/70 p-4 backdrop-blur-sm sm:p-8">
       <div class="mx-auto max-w-xl rounded-3xl border border-slate-200/15 bg-slate-900/95 p-6">
@@ -327,17 +405,20 @@
             <p class="text-xs uppercase tracking-[0.2em] text-sky-200">Edit Availability</p>
             <h3 class="font-display text-2xl font-semibold">Date: <span id="availability-date">-</span></h3>
           </div>
-          <button id="close-availability-editor" class="rounded-lg border border-slate-600 px-3 py-1 text-xs">Close</button>
+          <button id="close-availability-editor"
+            class="rounded-lg border border-slate-600 px-3 py-1 text-xs">Close</button>
         </div>
 
         <div class="mt-5 space-y-4">
           <label class="block text-sm">
             Date
-            <input id="availability-date-input" type="date" class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
+            <input id="availability-date-input" type="date"
+              class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
           </label>
           <label class="block text-sm">
             Status
-            <select id="availability-status" class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2">
+            <select id="availability-status"
+              class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2">
               <option value="available">Available</option>
               <option value="booked">Booked</option>
               <option value="limited">Limited</option>
@@ -345,18 +426,22 @@
           </label>
           <label class="block text-sm">
             Working Hours
-            <input id="availability-hours" type="text" value="06:00 - 16:00" class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
+            <input id="availability-hours" type="text" value="06:00 - 16:00"
+              class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
           </label>
           <label class="block text-sm">
             Custom Price (USD)
-            <input id="availability-price" type="number" min="0" value="1250" class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
+            <input id="availability-price" type="number" min="0" value="1250"
+              class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
           </label>
           <label class="inline-flex items-center gap-2 text-sm">
             <input id="availability-blocked" type="checkbox" class="h-4 w-4 rounded" /> Block this date
           </label>
         </div>
 
-        <button id="save-availability" class="mt-6 w-full rounded-xl bg-gradient-to-r from-sky-300 to-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950">Save Availability</button>
+        <button id="save-availability"
+          class="mt-6 w-full rounded-xl bg-gradient-to-r from-sky-300 to-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950">Save
+          Availability</button>
       </div>
     </div>
   </div>
@@ -367,8 +452,5 @@
   <script defer src="assets/js/pages.js"></script>
   <script defer src="assets/js/dashboard.js"></script>
 </body>
+
 </html>
-
-
-
-
