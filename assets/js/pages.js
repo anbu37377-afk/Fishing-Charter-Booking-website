@@ -10,10 +10,10 @@
   }
 
   function initNavActiveState() {
-    const current = (window.location.pathname.split('/').pop() || 'fish.home.html').toLowerCase();
+    const current = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
     document.querySelectorAll('[data-nav-link]').forEach((link) => {
       const href = (link.getAttribute('href') || '').toLowerCase();
-      const active = href === current || (current === '' && href === 'fish.home.html');
+      const active = href === current || (current === '' && href === 'index.html');
       link.classList.toggle('text-sky-200', active);
       link.classList.toggle('border-sky-300/40', active);
     });
