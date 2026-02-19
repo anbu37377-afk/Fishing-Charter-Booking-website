@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurelius Charters | Home V2</title>
+  <meta name="description" content="Home V2 cinematic landing for ultra-luxury yacht charter experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            display: ['Sora', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body class="bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-sky-300/35">
+  <div class="relative overflow-x-clip">
+    <header class="fixed inset-x-0 top-0 z-50">
+      <div class="mx-auto mt-4 flex w-[95%] max-w-7xl 2xl:max-w-[90rem] items-center justify-between rounded-2xl glass px-4 py-3 lg:px-6">
+        <a href="fish.home.html" class="flex items-center gap-3">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
+            <svg viewBox="0 0 24 24" class="h-5 w-5 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+            </svg>
+          </span>
+          <span class="font-display text-sm font-semibold tracking-[0.24em] text-sky-100 sm:text-base">AURELIUS CHARTERS</span>
+        </a>
+
+        <button data-menu-toggle="site-menu" class="rounded-xl border border-slate-200/20 bg-slate-900/40 px-3 py-2 text-xs lg:hidden">Menu</button>
+
+        <nav id="site-menu" class="absolute inset-x-4 top-16 hidden rounded-2xl glass p-4 lg:static lg:block lg:rounded-none lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+          <ul class="flex flex-col gap-2 text-sm lg:flex-row lg:items-center lg:gap-2">
+            <li><a data-nav-link href="fish.home.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Home</a></li>
+            <li><a data-nav-link href="index-v2.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Home V2</a></li>
+            <li><a data-nav-link href="booking.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Booking</a></li>
+            <li><a data-nav-link href="services.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Services</a></li>
+            <li><a data-nav-link href="gallery.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Gallery</a></li>
+            <li><a data-nav-link href="blog.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Blog</a></li>
+            <li><a data-nav-link href="contact.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Contact</a></li>
+            <li><a data-nav-link href="dashboard.html" class="rounded-lg border border-sky-200/30 bg-sky-300/15 px-3 py-2 font-semibold text-sky-100 transition hover:bg-sky-300/25">Dashboard</a></li>
+            <li><a data-nav-link href="login.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Login</a></li>
+            <li><a data-nav-link href="signup.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Sign Up</a></li>
+            <li class="flex gap-2 pt-2 lg:pt-0">
+              <button data-toggle-theme class="rounded-lg border border-slate-300/30 px-3 py-2 text-xs">Theme: <span data-theme-label>Dark</span></button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hv2-hero relative isolate min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-10" data-hv2-hero>
+        <img
+          id="hv2-hero-bg"
+          src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=2400&q=80&fm=webp"
+          alt="Luxury yacht open sea cinematic hero"
+          class="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-br from-[#0E2A3A]/78 via-[#0E2A3A]/56 to-[#0E2A3A]/34"></div>
+        <div id="hv2-diagonal-layer" class="hv2-diagonal-layer absolute inset-0"></div>
+        <div id="hv2-depth-a" class="hv2-depth-orb hv2-depth-a absolute"></div>
+        <div id="hv2-depth-b" class="hv2-depth-orb hv2-depth-b absolute"></div>
+
+        <div class="relative z-10 mx-auto grid max-w-7xl 2xl:max-w-[90rem] gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <article id="hv2-hero-copy" class="max-w-2xl">
+            <p class="hv2-hero-kicker text-xs uppercase tracking-[0.34em]">Private Club Landing</p>
+            <h1 id="hv2-hero-title" class="mt-5 font-display text-4xl font-bold leading-[0.93] sm:text-5xl lg:text-[4rem]">The New Horizon of Bespoke Offshore Access</h1>
+            <p class="hv2-hero-subtitle mt-6 text-sm leading-relaxed sm:text-base">Designed for members who expect tactical precision, discreet service, and cinematic charter orchestration from dock to deep water.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="booking.html" class="rounded-xl bg-[#0E2A3A] px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#7ECDED] transition hover:bg-[#0A2230]">Reserve Priority Slot</a>
+              <a href="services.html" class="hv2-ghost-btn rounded-xl border border-slate-100/35 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition hover:bg-slate-100/10">Explore Privileges</a>
+            </div>
+          </article>
+
+          <aside id="hv2-floating-box" class="hv2-floating-box justify-self-end rounded-3xl border border-slate-100/28 bg-slate-100/14 p-6 shadow-2xl backdrop-blur-xl">
+            <p class="text-xs uppercase tracking-[0.24em] text-cyan-100">Live Operations</p>
+            <p class="mt-3 font-display text-4xl font-semibold text-slate-100">24/7</p>
+            <p class="mt-2 text-sm text-slate-200/90">Concierge dispatch for elite route coordination</p>
+            <div class="mt-5 grid grid-cols-2 gap-3 text-center">
+              <div class="rounded-xl border border-slate-100/25 bg-slate-100/8 px-3 py-2">
+                <p class="text-xl font-semibold text-cyan-100">98%</p>
+                <p class="text-[10px] uppercase tracking-[0.16em] text-slate-200">Readiness</p>
+              </div>
+              <div class="rounded-xl border border-slate-100/25 bg-slate-100/8 px-3 py-2">
+                <p class="text-xl font-semibold text-cyan-100">15+</p>
+                <p class="text-[10px] uppercase tracking-[0.16em] text-slate-200">Captains</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl 2xl:max-w-[90rem] px-4 py-20 sm:px-6 lg:px-10" data-hv2-expedition>
+        <div class="hv2-exp-shell relative overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:p-10">
+          <div class="mb-9">
+            <p class="text-xs uppercase tracking-[0.28em] text-[#0E2A3A]/76 dark:text-sky-200/80">Elite Expedition Showcase</p>
+            <h2 class="mt-3 font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100 sm:text-4xl">Overlapping Journeys, Built in Layers</h2>
+            <span id="hv2-exp-underline" class="hv2-exp-underline mt-5 block h-[2px] w-0 rounded-full"></span>
+          </div>
+
+          <div class="hv2-exp-canvas relative min-h-[24rem] sm:min-h-[30rem]">
+            <figure class="hv2-exp-card hv2-exp-main group absolute left-1/2 top-[56%] z-20 h-[66%] w-[90%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-3xl border border-slate-200/20 sm:top-[52%] sm:w-[68%]" data-hv2-exp-img>
+              <img src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?auto=format&fit=crop&w=2100&q=80&fm=webp" alt="Main expedition showcase vessel" class="hv2-exp-image absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/88 via-[#0E2A3A]/42 to-transparent"></div>
+            </figure>
+
+            <figure class="hv2-exp-card hv2-exp-left group absolute left-[7%] top-[14%] z-30 h-[32%] w-[40%] overflow-hidden rounded-3xl border border-slate-200/20 sm:left-[9%] sm:w-[24%]" data-hv2-exp-img>
+              <img src="https://images.unsplash.com/photo-1493962853295-0fd70327578a?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Expedition frame left" class="hv2-exp-image absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/35 to-transparent"></div>
+            </figure>
+
+            <figure class="hv2-exp-card hv2-exp-right group absolute bottom-[9%] right-[7%] z-30 h-[31%] w-[40%] overflow-hidden rounded-3xl border border-slate-200/20 sm:right-[10%] sm:w-[24%]" data-hv2-exp-img>
+              <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Expedition frame right" class="hv2-exp-image absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/35 to-transparent"></div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl 2xl:max-w-[90rem] px-4 pb-20 sm:px-6 lg:px-10" data-hv2-fleet>
+        <div class="hv2-fleet-shell grid gap-6 overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-10">
+          <figure class="hv2-fleet-image-wrap group relative min-h-[24rem] overflow-hidden rounded-3xl border border-slate-200/20">
+            <img id="hv2-fleet-image" src="https://images.unsplash.com/photo-1519733738673-87a0545be639?auto=format&fit=crop&w=2200&q=80&fm=webp" alt="Fleet experience vessel" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/86 via-[#0E2A3A]/42 to-transparent"></div>
+          </figure>
+
+          <div class="flex items-center">
+            <div class="w-full">
+              <p class="text-xs uppercase tracking-[0.28em] text-[#0E2A3A]/76 dark:text-sky-200/80">The Fleet Experience</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100 sm:text-4xl">Sliding Intelligence Cards</h2>
+              <div class="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
+                <article class="hv2-fleet-card min-w-[17rem] snap-center rounded-3xl border border-slate-200/20 p-5" data-hv2-fleet-card data-tilt>
+                  <h3 class="font-display text-xl font-semibold text-[#0E2A3A] dark:text-slate-100">Bluewater Elite 42</h3>
+                  <p class="mt-2 text-sm text-[#0E2A3A]/85 dark:text-slate-200">Stabilized hull and rapid tactical repositioning for pelagic zones.</p>
+                </article>
+                <article class="hv2-fleet-card min-w-[17rem] snap-center rounded-3xl border border-slate-200/20 p-5" data-hv2-fleet-card data-tilt>
+                  <h3 class="font-display text-xl font-semibold text-[#0E2A3A] dark:text-slate-100">Prestige Sportline</h3>
+                  <p class="mt-2 text-sm text-[#0E2A3A]/85 dark:text-slate-200">Tournament-grade deck geometry with lounge-class comfort.</p>
+                </article>
+                <article class="hv2-fleet-card min-w-[17rem] snap-center rounded-3xl border border-slate-200/20 p-5" data-hv2-fleet-card data-tilt>
+                  <h3 class="font-display text-xl font-semibold text-[#0E2A3A] dark:text-slate-100">Sunset Reserve 38</h3>
+                  <p class="mt-2 text-sm text-[#0E2A3A]/85 dark:text-slate-200">Curated low-vibration cruising for cinematic return legs.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hv2-strip-shell relative left-1/2 right-1/2 w-screen -translate-x-1/2 border-y border-slate-200/20 py-10" data-hv2-strip>
+        <div class="mx-auto w-[95%] max-w-7xl 2xl:max-w-[90rem]">
+          <div class="hv2-strip-sweep" aria-hidden="true"></div>
+          <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <article class="hv2-strip-metric rounded-3xl border border-slate-100/16 p-5" data-hv2-metric>
+              <p class="hv2-strip-value font-display text-4xl font-semibold" data-hv2-counter data-target="98" data-suffix="%">0%</p>
+              <p class="hv2-strip-label mt-2 text-xs uppercase tracking-[0.16em]">Departure Reliability</p>
+            </article>
+            <article class="hv2-strip-metric rounded-3xl border border-slate-100/16 p-5" data-hv2-metric>
+              <p class="hv2-strip-value font-display text-4xl font-semibold" data-hv2-counter data-target="24" data-suffix="h">0h</p>
+              <p class="hv2-strip-label mt-2 text-xs uppercase tracking-[0.16em]">Concierge Response</p>
+            </article>
+            <article class="hv2-strip-metric rounded-3xl border border-slate-100/16 p-5" data-hv2-metric>
+              <p class="hv2-strip-value font-display text-4xl font-semibold" data-hv2-counter data-target="15" data-suffix="+">0+</p>
+              <p class="hv2-strip-label mt-2 text-xs uppercase tracking-[0.16em]">Master Captains</p>
+            </article>
+            <article class="hv2-strip-metric rounded-3xl border border-slate-100/16 p-5" data-hv2-metric>
+              <p class="hv2-strip-value font-display text-4xl font-semibold" data-hv2-counter data-target="42" data-suffix="">0</p>
+              <p class="hv2-strip-label mt-2 text-xs uppercase tracking-[0.16em]">Monthly Briefings</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl 2xl:max-w-[90rem] px-4 py-20 sm:px-6 lg:px-10" data-hv2-circle>
+        <div class="hv2-circle-shell grid gap-8 overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:grid-cols-[0.95fr_1.05fr] lg:p-10">
+          <article id="hv2-circle-text" class="self-center">
+            <p class="text-xs uppercase tracking-[0.28em] text-[#0E2A3A]/76 dark:text-sky-200/80">Captain's Circle</p>
+            <h2 class="mt-3 font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100 sm:text-4xl">Editorial Access to the Minds Steering Each Expedition</h2>
+            <p class="mt-5 text-sm leading-relaxed text-[#0E2A3A]/86 dark:text-slate-200">Inside the circle, captains share tactical reads, seasonal indicators, and route discipline that define elite charter outcomes.</p>
+            <a href="blog.html" class="mt-6 inline-flex rounded-xl bg-[#0E2A3A] px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#7ECDED] transition hover:bg-[#0A2230]">Read Captain Journal</a>
+          </article>
+
+          <div class="relative min-h-[26rem]">
+            <figure class="hv2-circle-photo hv2-circle-photo-a absolute left-[8%] top-[10%] z-20 h-[58%] w-[56%] overflow-hidden rounded-3xl border border-slate-200/20" data-hv2-circle-photo>
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1300&q=80&fm=webp" alt="Captain portrait editorial A" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            </figure>
+            <figure class="hv2-circle-photo hv2-circle-photo-b absolute right-[7%] bottom-[10%] z-30 h-[55%] w-[52%] overflow-hidden rounded-3xl border border-slate-200/20" data-hv2-circle-photo>
+              <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1300&q=80&fm=webp" alt="Captain portrait editorial B" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl 2xl:max-w-[90rem] px-4 pb-24 sm:px-6 lg:px-10" data-hv2-cta>
+        <div class="hv2-cta-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 p-8 sm:p-12">
+          <img
+            id="hv2-cta-image"
+            src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=2200&q=80&fm=webp"
+            alt="Cinematic call to action yacht"
+            class="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-br from-[#0E2A3A]/78 via-[#0E2A3A]/52 to-[#0E2A3A]/36"></div>
+          <div class="relative z-10 mx-auto max-w-3xl text-center">
+            <h2 class="hv2-cta-title font-display text-4xl font-bold leading-[0.94] sm:text-5xl">Enter the Offshore Circle</h2>
+            <p class="hv2-cta-copy mx-auto mt-5 max-w-2xl text-sm leading-relaxed sm:text-base">Reserve your next departure with cinematic precision, captain-level planning, and private-club hospitality.</p>
+            <div class="mt-7 flex flex-wrap justify-center gap-3">
+              <a href="booking.html" class="rounded-xl bg-[#0E2A3A] px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#7ECDED] transition hover:bg-[#0A2230]">Start Booking</a>
+              <a href="dashboard.html" class="hv2-ghost-btn rounded-xl border border-slate-100/32 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition hover:bg-slate-100/10">Open Dashboard</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="premium-footer-shell px-4 pb-6 pt-10 sm:px-6 lg:px-10">
+  <div class="mx-auto max-w-7xl 2xl:max-w-[90rem]">
+    <div class="premium-footer-top grid gap-8 p-6 sm:p-8 lg:grid-cols-4 lg:p-10">
+      <div>
+        <a href="fish.home.html" class="premium-footer-brand inline-flex items-center gap-3">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0E2A3A]/25 bg-white/45">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+            </svg>
+          </span>
+          Aurelius Charters
+        </a>
+        <p class="premium-footer-copy mt-4">Luxury yacht charter journeys engineered for precision, comfort, and cinematic open-water moments.</p>
+        <div class="mt-5 flex items-center gap-3">
+          <a href="#" class="premium-footer-social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" /></svg>
+          </a>
+          <a href="#" class="premium-footer-social" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 10v7M8 7h.01M12 17v-4a3 3 0 0 1 6 0v4" /><rect x="3" y="3" width="18" height="18" rx="2" /></svg>
+          </a>
+          <a href="#" class="premium-footer-social" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.8" y="6.2" width="18.4" height="11.6" rx="3" /><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="premium-footer-heading">Quick Links</h3>
+        <ul class="premium-footer-list">
+          <li><a href="fish.home.html" class="premium-footer-link">Home</a></li>
+          <li><a href="index-v2.html" class="premium-footer-link">Home V2</a></li>
+          <li><a href="booking.html" class="premium-footer-link">Booking</a></li>
+          <li><a href="services.html" class="premium-footer-link">Services</a></li>
+          <li><a href="gallery.html" class="premium-footer-link">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="premium-footer-heading">Visit & Contact</h3>
+        <div class="premium-footer-list premium-footer-meta">
+          <p>Pier 9, Marina Bay, Coastal District</p>
+          <p>+1 (305) 555-0148</p>
+          <p>concierge@aureliuscharters.com</p>
+          <p>Daily: 05:00 AM - 11:00 PM</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="premium-footer-heading">Newsletter</h3>
+        <p class="premium-footer-copy mt-3">Receive route insights, departure windows, and premium trip releases.</p>
+        <form class="mt-4 grid gap-3" data-demo-form>
+          <input type="email" required placeholder="Email address" class="premium-footer-input" />
+          <button type="submit" class="premium-footer-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="premium-footer-bottom mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <p class="premium-footer-meta">(c) 2026 Aurelius Charters. All rights reserved.</p>
+      <div class="flex flex-wrap items-center gap-4 text-sm">
+        <a href="#" class="premium-footer-policy">Privacy Policy</a>
+        <a href="#" class="premium-footer-policy">Terms of Service</a>
+        <a href="#" class="premium-footer-policy">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/pages.js"></script>
+  <script defer src="assets/js/home-v2.js"></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unified Dashboard | Aurelius Charters</title>
+  <meta name="description" content="Unified captain and customer dashboard for luxury fishing charter booking, analytics, and availability management." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            display: ['Sora', 'sans-serif']
+          },
+          boxShadow: {
+            neon: '0 0 30px rgba(56, 189, 248, 0.25)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <div class="relative min-h-screen overflow-x-clip lg:pl-72">
+    <aside id="dashboard-sidebar" class="sidebar-anchor fixed inset-y-0 left-0 z-50 w-72 -translate-x-full border-r border-slate-200/10 bg-slate-950/95 p-4 transition-transform duration-300 lg:translate-x-0">
+      <div class="flex items-center justify-between border-b border-slate-200/10 pb-4">
+        <a href="fish.home.html" class="flex items-center gap-2">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+            </svg>
+          </span>
+          <span class="font-display text-sm font-semibold tracking-[0.22em] text-sky-100">AURELIUS</span>
+        </a>
+        <button id="sidebar-close" class="rounded-lg border border-slate-600 px-2 py-1 text-xs lg:hidden">Close</button>
+      </div>
+
+      <div class="mt-6 space-y-2 text-sm">
+        <button data-nav-target="overview" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Overview</button>
+        <button data-role-only="captain" data-nav-target="availability" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Availability Calendar</button>
+        <button data-role-only="customer" data-nav-target="bookings" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">My Bookings</button>
+        <button data-nav-target="analytics" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Earnings & Analytics</button>
+        <button data-nav-target="trip-management" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Trip Management</button>
+        <button data-nav-target="settings" class="w-full rounded-xl border border-slate-700/70 bg-slate-900/70 px-3 py-2 text-left hover:border-sky-300/40">Profile & Settings</button>
+      </div>
+
+      <div class="mt-8 rounded-2xl border border-sky-300/30 bg-sky-400/10 p-4 text-xs text-sky-100">
+        Unified dashboard mode: switch between captain and customer roles using the top bar toggle.
+      </div>
+    </aside>
+
+    <header class="sticky top-0 z-30 border-b border-slate-200/10 bg-slate-950/90 px-4 py-3 backdrop-blur sm:px-6">
+      <div class="mx-auto flex max-w-7xl 2xl:max-w-[90rem] flex-wrap items-center justify-between gap-3 lg:flex-nowrap lg:overflow-x-auto lg:whitespace-nowrap">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-open" class="rounded-xl border border-slate-600 px-3 py-2 text-xs lg:hidden">Menu</button>
+          <a href="fish.home.html" class="inline-flex items-center gap-2 rounded-xl border border-slate-600 px-3 py-2 text-xs whitespace-nowrap">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+              </svg>
+            </span>
+            <span class="font-display tracking-[0.16em]">AURELIUS</span>
+          </a>
+          <a href="index-v2.html" class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Home V2</a>
+          <a href="login.html" class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Login</a>
+          <a href="signup.html" class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Sign Up</a>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 lg:flex-nowrap">
+          <div class="flex rounded-xl border border-slate-600/80 bg-slate-900/60 p-1 text-xs">
+            <button data-role-toggle="captain" class="rounded-lg border border-slate-700/50 px-3 py-1.5">Captain</button>
+            <button data-role-toggle="customer" class="rounded-lg border border-slate-700/50 px-3 py-1.5">Customer</button>
+          </div>
+
+          <button data-toggle-theme class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Theme: <span data-theme-label>Dark</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl 2xl:max-w-[90rem] space-y-8 px-4 pb-24 pt-6 sm:px-6">
+      <section id="overview" class="space-y-4">
+        <div>
+          <p class="text-xs uppercase tracking-[0.26em] text-sky-200">Dashboard Overview</p>
+          <h1 class="mt-2 font-display text-3xl font-bold">Operational Snapshot</h1>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <article class="glass cinematic-glow rounded-2xl p-5 shadow-neon transition" data-fade>
+            <p class="text-xs uppercase tracking-[0.2em] text-slate-300">Upcoming Trips</p>
+            <p id="stat-upcoming" class="mt-2 text-3xl font-bold text-sky-100">0</p>
+          </article>
+          <article class="glass cinematic-glow rounded-2xl p-5 shadow-neon transition" data-fade>
+            <p class="text-xs uppercase tracking-[0.2em] text-slate-300">Total Bookings</p>
+            <p id="stat-total-bookings" class="mt-2 text-3xl font-bold text-sky-100">0</p>
+          </article>
+          <article class="glass cinematic-glow rounded-2xl p-5 shadow-neon transition" data-fade>
+            <p id="stat-primary-label" class="text-xs uppercase tracking-[0.2em] text-slate-300">Monthly Earnings</p>
+            <p id="stat-primary" class="mt-2 text-3xl font-bold text-amber-200">$0</p>
+          </article>
+          <article class="glass cinematic-glow rounded-2xl p-5 shadow-neon transition" data-fade>
+            <p class="text-xs uppercase tracking-[0.2em] text-slate-300">Completed Trips</p>
+            <p id="stat-completed" class="mt-2 text-3xl font-bold text-emerald-200">0</p>
+          </article>
+          <article class="glass cinematic-glow rounded-2xl p-5 shadow-neon transition" data-fade>
+            <p class="text-xs uppercase tracking-[0.2em] text-slate-300">Rating Score</p>
+            <p id="stat-rating" class="mt-2 text-3xl font-bold text-cyan-200">0</p>
+          </article>
+          <article class="glass cinematic-glow rounded-2xl p-5 shadow-neon transition" data-fade>
+            <p class="text-xs uppercase tracking-[0.2em] text-slate-300">System Status</p>
+            <p class="mt-2 text-3xl font-bold text-lime-200">Online</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="availability" data-role-only="captain" class="space-y-4">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[0.26em] text-cyan-100">Captain View</p>
+            <h2 class="font-display text-2xl font-bold">Availability Calendar</h2>
+          </div>
+          <div class="flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-slate-300">
+            <span class="inline-flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-emerald-400"></span>Available</span>
+            <span class="inline-flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-red-400"></span>Booked</span>
+            <span class="inline-flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-amber-400"></span>Limited</span>
+          </div>
+        </div>
+
+        <article class="fullcalendar-skin calendar-rtl rounded-3xl border border-slate-200/10 bg-slate-900/55 p-4 sm:p-6" data-fade>
+          <div id="availability-calendar"></div>
+        </article>
+      </section>
+
+      <section id="bookings" data-role-only="customer" class="space-y-4">
+        <div>
+          <p class="text-xs uppercase tracking-[0.26em] text-cyan-100">Customer View</p>
+          <h2 class="font-display text-2xl font-bold">My Bookings</h2>
+        </div>
+
+        <article class="overflow-x-auto rounded-3xl border border-slate-200/10 bg-slate-900/55 p-4" data-fade>
+          <table class="min-w-full text-sm">
+            <thead class="text-left text-xs uppercase tracking-[0.2em] text-slate-300">
+              <tr>
+                <th class="px-3 py-2">Trip</th>
+                <th class="px-3 py-2">Captain</th>
+                <th class="px-3 py-2">Date</th>
+                <th class="px-3 py-2">Status</th>
+                <th class="px-3 py-2">Payment</th>
+                <th class="px-3 py-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-700/60 text-slate-200">
+              <tr>
+                <td class="px-3 py-3">Blue Marlin Quest</td>
+                <td class="px-3 py-3">Elias Ward</td>
+                <td class="px-3 py-3">2026-03-04</td>
+                <td class="px-3 py-3"><span class="status-badge rounded-full border border-emerald-300/50 bg-emerald-500/15 px-2 py-1 text-xs">Confirmed</span></td>
+                <td class="px-3 py-3"><span class="status-badge rounded-full border border-amber-300/50 bg-amber-500/15 px-2 py-1 text-xs">Deposit Paid</span></td>
+                <td class="px-3 py-3">
+                  <div class="flex flex-wrap gap-2">
+                    <button data-trip-action="cancel" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Cancel</button>
+                    <button data-trip-action="reschedule" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Reschedule</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-3 py-3">Sunset Prestige</td>
+                <td class="px-3 py-3">Nia Solis</td>
+                <td class="px-3 py-3">2026-03-17</td>
+                <td class="px-3 py-3"><span class="status-badge rounded-full border border-cyan-300/50 bg-cyan-500/15 px-2 py-1 text-xs">Pending</span></td>
+                <td class="px-3 py-3"><span class="status-badge rounded-full border border-slate-300/50 bg-slate-500/15 px-2 py-1 text-xs">Pending</span></td>
+                <td class="px-3 py-3">
+                  <div class="flex flex-wrap gap-2">
+                    <button data-trip-action="cancel" data-trip-label="Sunset Prestige" class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Cancel</button>
+                    <button data-trip-action="reschedule" data-trip-label="Sunset Prestige" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Reschedule</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <section id="analytics" class="space-y-4">
+        <div>
+          <p class="text-xs uppercase tracking-[0.26em] text-cyan-100">Data Room</p>
+          <h2 class="font-display text-2xl font-bold">Earnings & Analytics</h2>
+        </div>
+        <div class="grid gap-4 xl:grid-cols-2">
+          <article class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-4" data-fade>
+            <p class="mb-3 text-xs uppercase tracking-[0.2em] text-slate-300">Monthly Revenue</p>
+            <canvas id="chart-revenue" height="140"></canvas>
+          </article>
+          <article class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-4" data-fade>
+            <p class="mb-3 text-xs uppercase tracking-[0.2em] text-slate-300">Booking Trends</p>
+            <canvas id="chart-bookings" height="140"></canvas>
+          </article>
+          <article class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-4" data-fade>
+            <p class="mb-3 text-xs uppercase tracking-[0.2em] text-slate-300">Trip Popularity</p>
+            <canvas id="chart-popularity" height="140"></canvas>
+          </article>
+          <article class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-4" data-fade>
+            <p class="mb-3 text-xs uppercase tracking-[0.2em] text-slate-300">Occupancy Rate</p>
+            <canvas id="chart-occupancy" height="140"></canvas>
+          </article>
+        </div>
+      </section>
+
+      <section id="trip-management" class="space-y-4">
+        <div>
+          <p class="text-xs uppercase tracking-[0.26em] text-cyan-100">Operations</p>
+          <h2 class="font-display text-2xl font-bold">Trip Management</h2>
+        </div>
+
+        <article data-role-only="captain" class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-6" data-fade>
+          <h3 class="font-display text-xl font-semibold">Captain Queue</h3>
+          <div class="mt-4 grid gap-3 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
+              <p class="text-sm font-semibold">Marlin Tournament Run</p>
+              <p class="mt-1 text-xs text-slate-300">Guest: Emma Carter - 2026-03-08</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <button data-trip-action="accept" data-trip-label="Marlin Tournament Run" class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Accept</button>
+                <button data-trip-action="reject" data-trip-label="Marlin Tournament Run" class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Reject</button>
+                <button data-trip-action="message" data-trip-label="Marlin Tournament Run" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Message</button>
+                <button data-trip-action="complete" data-trip-label="Marlin Tournament Run" class="rounded-lg border border-amber-300/40 px-2 py-1 text-xs">Mark Completed</button>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
+              <p class="text-sm font-semibold">Offshore Elite Session</p>
+              <p class="mt-1 text-xs text-slate-300">Guest: Noah Bennett - 2026-03-11</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <button data-trip-action="accept" data-trip-label="Offshore Elite Session" class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Accept</button>
+                <button data-trip-action="reject" data-trip-label="Offshore Elite Session" class="rounded-lg border border-rose-300/40 px-2 py-1 text-xs">Reject</button>
+                <button data-trip-action="message" data-trip-label="Offshore Elite Session" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Message</button>
+                <button data-trip-action="complete" data-trip-label="Offshore Elite Session" class="rounded-lg border border-amber-300/40 px-2 py-1 text-xs">Mark Completed</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article data-role-only="customer" class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-6" data-fade>
+          <h3 class="font-display text-xl font-semibold">Customer Actions</h3>
+          <div class="mt-4 grid gap-3 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
+              <p class="text-sm font-semibold">Blue Marlin Quest</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <button data-trip-action="invoice" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Download Invoice</button>
+                <button data-trip-action="review" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Leave Review</button>
+                <button data-trip-action="details" data-trip-label="Blue Marlin Quest" class="rounded-lg border border-slate-300/40 px-2 py-1 text-xs">Trip Details</button>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
+              <p class="text-sm font-semibold">Sunset Prestige</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <button data-trip-action="invoice" data-trip-label="Sunset Prestige" class="rounded-lg border border-sky-300/40 px-2 py-1 text-xs">Download Invoice</button>
+                <button data-trip-action="review" data-trip-label="Sunset Prestige" class="rounded-lg border border-emerald-300/40 px-2 py-1 text-xs">Leave Review</button>
+                <button data-trip-action="details" data-trip-label="Sunset Prestige" class="rounded-lg border border-slate-300/40 px-2 py-1 text-xs">Trip Details</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="settings" class="space-y-4 pb-16">
+        <div>
+          <p class="text-xs uppercase tracking-[0.26em] text-cyan-100">Preferences</p>
+          <h2 class="font-display text-2xl font-bold">Profile & Settings</h2>
+        </div>
+
+        <div class="grid gap-4 xl:grid-cols-[1fr_1fr]">
+          <article class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-6" data-fade>
+            <h3 class="font-display text-xl font-semibold">Edit Profile</h3>
+            <div class="mt-4 flex flex-wrap items-center gap-4">
+              <img id="avatar-preview" src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=240&q=80&fm=webp" alt="Avatar preview" class="h-20 w-20 rounded-full object-cover ring-2 ring-sky-300/40" />
+              <label class="rounded-xl border border-slate-500 px-3 py-2 text-xs cursor-pointer">
+                Upload Avatar
+                <input id="avatar-upload" type="file" accept="image/*" class="hidden" />
+              </label>
+            </div>
+
+            <form class="mt-5 grid gap-3 sm:grid-cols-2" data-demo-form>
+              <input type="text" placeholder="First name" class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <input type="text" placeholder="Last name" class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <input type="email" placeholder="Email" class="rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm sm:col-span-2" />
+              <button type="submit" class="sm:col-span-2 rounded-xl border border-sky-300/40 bg-sky-300/10 px-4 py-2 text-sm">Save Profile</button>
+            </form>
+          </article>
+
+          <article class="rounded-3xl border border-slate-200/10 bg-slate-900/55 p-6" data-fade>
+            <h3 class="font-display text-xl font-semibold">Security & Display</h3>
+            <form id="password-form" class="mt-4 space-y-3">
+              <input type="password" required placeholder="Current password" class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <input type="password" required placeholder="New password" class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <input type="password" required placeholder="Confirm new password" class="w-full rounded-xl border border-slate-500 bg-slate-950/50 px-3 py-2 text-sm" />
+              <button type="submit" class="w-full rounded-xl border border-emerald-300/40 bg-emerald-300/10 px-4 py-2 text-sm">Change Password</button>
+            </form>
+
+            <div class="mt-5 grid gap-3 sm:grid-cols-2">
+              <button data-toggle-theme class="rounded-xl border border-slate-500 px-3 py-2 text-sm">Toggle Dark Mode</button>
+              <button data-toggle-rtl class="rounded-xl border border-slate-500 px-3 py-2 text-sm">Toggle RTL</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="fixed inset-x-3 bottom-3 z-40 rounded-2xl border border-slate-200/15 bg-slate-900/90 p-2 backdrop-blur lg:hidden">
+      <div class="grid grid-cols-4 gap-2 text-[11px] uppercase tracking-[0.16em]">
+        <button data-nav-target="overview" class="rounded-lg bg-slate-800/70 px-2 py-2">Overview</button>
+        <button data-nav-target="analytics" class="rounded-lg bg-slate-800/70 px-2 py-2">Analytics</button>
+        <button data-nav-target="trip-management" class="rounded-lg bg-slate-800/70 px-2 py-2">Trips</button>
+        <button data-nav-target="settings" class="rounded-lg bg-slate-800/70 px-2 py-2">Settings</button>
+      </div>
+    </nav>
+
+    <div id="availability-editor" class="fixed inset-0 z-[95] hidden bg-slate-950/70 p-4 backdrop-blur-sm sm:p-8">
+      <div class="mx-auto max-w-xl rounded-3xl border border-slate-200/15 bg-slate-900/95 p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[0.2em] text-sky-200">Edit Availability</p>
+            <h3 class="font-display text-2xl font-semibold">Date: <span id="availability-date">-</span></h3>
+          </div>
+          <button id="close-availability-editor" class="rounded-lg border border-slate-600 px-3 py-1 text-xs">Close</button>
+        </div>
+
+        <div class="mt-5 space-y-4">
+          <label class="block text-sm">
+            Date
+            <input id="availability-date-input" type="date" class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
+          </label>
+          <label class="block text-sm">
+            Status
+            <select id="availability-status" class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2">
+              <option value="available">Available</option>
+              <option value="booked">Booked</option>
+              <option value="limited">Limited</option>
+            </select>
+          </label>
+          <label class="block text-sm">
+            Working Hours
+            <input id="availability-hours" type="text" value="06:00 - 16:00" class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
+          </label>
+          <label class="block text-sm">
+            Custom Price (USD)
+            <input id="availability-price" type="number" min="0" value="1250" class="mt-1 w-full rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-2" />
+          </label>
+          <label class="inline-flex items-center gap-2 text-sm">
+            <input id="availability-blocked" type="checkbox" class="h-4 w-4 rounded" /> Block this date
+          </label>
+        </div>
+
+        <button id="save-availability" class="mt-6 w-full rounded-xl bg-gradient-to-r from-sky-300 to-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950">Save Availability</button>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/pages.js"></script>
+  <script defer src="assets/js/dashboard.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurelius Charters | Luxury Fishing Expeditions</title>
+  <meta name="description" content="Luxury cinematic fishing charter booking with elite captains, bespoke trips, and premium onboard experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ocean: {
+              50: '#e6fbff',
+              100: '#c0f4ff',
+              200: '#8de9ff',
+              300: '#54dcff',
+              400: '#22cdff',
+              500: '#00b3e6',
+              600: '#008bb4',
+              700: '#006382',
+              800: '#003b51',
+              900: '#001521'
+            }
+          },
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            display: ['Sora', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(34, 205, 255, 0.32)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body class="page-home bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-sky-300/35">
+  <div class="relative overflow-x-clip">
+    <header class="fixed inset-x-0 top-0 z-50">
+      <div class="mx-auto mt-4 flex w-[95%] max-w-7xl 2xl:max-w-[90rem] items-center justify-between rounded-2xl glass px-4 py-3 lg:px-6">
+        <a href="fish.home.html" class="flex items-center gap-3">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
+            <svg viewBox="0 0 24 24" class="h-5 w-5 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+            </svg>
+          </span>
+          <span class="font-display text-sm font-semibold tracking-[0.24em] text-sky-100 sm:text-base">AURELIUS CHARTERS</span>
+        </a>
+
+        <button data-menu-toggle="site-menu" class="rounded-xl border border-slate-200/20 bg-slate-900/40 px-3 py-2 text-xs lg:hidden">
+          Menu
+        </button>
+
+        <nav id="site-menu" class="absolute inset-x-4 top-16 hidden rounded-2xl glass p-4 lg:static lg:block lg:rounded-none lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+          <ul class="flex flex-col gap-2 text-sm lg:flex-row lg:items-center lg:gap-2">
+            <li><a data-nav-link href="fish.home.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Home</a></li>
+            <li><a data-nav-link href="index-v2.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Home V2</a></li>
+            <li><a data-nav-link href="booking.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Booking</a></li>
+            <li><a data-nav-link href="services.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Services</a></li>
+            <li><a data-nav-link href="gallery.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Gallery</a></li>
+            <li><a data-nav-link href="blog.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Blog</a></li>
+            <li><a data-nav-link href="contact.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Contact</a></li>
+            <li><a data-nav-link href="dashboard.html" class="rounded-lg border border-sky-200/30 bg-sky-300/15 px-3 py-2 font-semibold text-sky-100 transition hover:bg-sky-300/25">Dashboard</a></li>
+            <li><a data-nav-link href="login.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Login</a></li>
+            <li><a data-nav-link href="signup.html" class="rounded-lg border border-transparent px-3 py-2 text-slate-100/90 transition hover:border-sky-200/30 hover:text-white">Sign Up</a></li>
+            <li class="flex gap-2 pt-2 lg:pt-0">
+              <button data-toggle-theme class="rounded-lg border border-slate-300/30 px-3 py-2 text-xs">Theme: <span data-theme-label>Dark</span></button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="home-hero relative isolate min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-10">
+        <img id="hero-image" loading="eager" src="https://t3.ftcdn.net/jpg/01/34/53/74/360_F_134537443_VendrqyXIWyHrZgxdIsfyKUost734JDP.jpg" alt="Luxury fishing yacht at sunrise" class="absolute inset-0 h-full w-full object-cover" />
+        <div class="home-hero-overlay-primary absolute inset-0 bg-gradient-to-br from-slate-950/75 via-slate-900/55 to-cyan-900/35"></div>
+        <div class="home-hero-overlay-glow absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,205,255,0.22),transparent_45%)]"></div>
+        <div id="hero-particles" class="pointer-events-none absolute inset-0"></div>
+
+        <div class="relative mx-auto flex max-w-7xl 2xl:max-w-[90rem] flex-col justify-center">
+          <div class="mb-10 inline-flex w-fit items-center gap-2 rounded-full border border-sky-100/30 bg-slate-950/40 px-4 py-2 text-xs tracking-[0.26em] text-sky-100/90">
+            PREMIER OFFSHORE EXPERIENCES
+          </div>
+
+          <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+            <div>
+              <h1 id="hero-title" class="font-display text-4xl font-extrabold leading-[0.95] text-white sm:text-5xl lg:text-7xl"></h1>
+              <p id="hero-subtitle" class="mt-6 max-w-2xl text-base text-slate-100/90 sm:text-lg"></p>
+            </div>
+            <div class="flex justify-center lg:justify-end">
+              <div class="glass rounded-3xl p-6 shadow-glow">
+                <svg data-compass viewBox="0 0 200 200" class="floating-compass h-40 w-40 text-sky-100">
+                  <circle cx="100" cy="100" r="93" fill="rgba(2,6,23,0.35)" stroke="currentColor" stroke-width="4" />
+                  <circle cx="100" cy="100" r="74" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.6" />
+                  <path d="M100 35 L120 100 L100 165 L80 100 Z" fill="rgba(245,196,81,0.8)" />
+                  <path d="M100 60 L112 100 L100 140 L88 100 Z" fill="rgba(56,189,248,0.9)" />
+                  <text x="100" y="24" text-anchor="middle" fill="currentColor" class="font-display" font-size="14">N</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <form id="quick-booking-form" class="glass mt-10 grid gap-4 rounded-2xl p-4 sm:grid-cols-2 lg:grid-cols-5" data-fade>
+            <label class="flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-slate-200">
+              Destination
+              <select class="rounded-xl border border-slate-200/25 bg-slate-950/40 px-3 py-3 text-sm normal-case tracking-normal text-slate-100 focus:border-sky-300 focus:outline-none">
+                <option>Outer Reef</option>
+                <option>Bluewater Bank</option>
+                <option>Sunset Cove</option>
+              </select>
+            </label>
+            <label class="flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-slate-200">
+              Date
+              <input type="date" class="rounded-xl border border-slate-200/25 bg-slate-950/40 px-3 py-3 text-sm normal-case tracking-normal text-slate-100 focus:border-sky-300 focus:outline-none" required />
+            </label>
+            <label class="flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-slate-200">
+              Guests
+              <input type="number" min="1" max="10" value="2" class="rounded-xl border border-slate-200/25 bg-slate-950/40 px-3 py-3 text-sm normal-case tracking-normal text-slate-100 focus:border-sky-300 focus:outline-none" />
+            </label>
+            <label class="flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-slate-200">
+              Trip Type
+              <select class="rounded-xl border border-slate-200/25 bg-slate-950/40 px-3 py-3 text-sm normal-case tracking-normal text-slate-100 focus:border-sky-300 focus:outline-none">
+                <option>Deep Sea</option>
+                <option>Sport Fishing</option>
+                <option>Sunset Charter</option>
+              </select>
+            </label>
+            <button id="hero-booking-bar" type="submit" class="rounded-xl bg-gradient-to-r from-sky-400 to-cyan-300 px-4 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 transition hover:brightness-110">
+              Secure My Charter
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl 2xl:max-w-[90rem] px-4 py-20 sm:px-6 lg:px-10" data-reveal data-routes-section>
+        <div class="signature-routes-shell relative isolate">
+          <svg class="route-fish route-fish-a" viewBox="0 0 120 60" aria-hidden="true">
+            <path d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z" fill="none" stroke="currentColor" stroke-width="2.2" />
+          </svg>
+          <svg class="route-fish route-fish-b" viewBox="0 0 120 60" aria-hidden="true">
+            <path d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z" fill="none" stroke="currentColor" stroke-width="2.2" />
+          </svg>
+          <svg class="route-fish route-fish-c" viewBox="0 0 120 60" aria-hidden="true">
+            <path d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z" fill="none" stroke="currentColor" stroke-width="2.2" />
+          </svg>
+          <svg class="route-compass-watermark" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="2.2" />
+            <circle cx="100" cy="100" r="64" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <path d="M100 38 L118 100 L100 162 L82 100 Z" fill="none" stroke="currentColor" stroke-width="2" />
+          </svg>
+
+          <div class="mb-8 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <p class="text-xs uppercase tracking-[0.28em] text-sky-200/90">Signature Routes</p>
+              <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Diagonal Split Adventures</h2>
+            </div>
+            <a href="services.html" class="rounded-full border border-sky-200/35 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-100 hover:bg-sky-300/15">Explore Services</a>
+          </div>
+
+          <div class="relative grid gap-6 lg:grid-cols-2 lg:gap-8">
+            <article class="route-card route-card-sweep group relative z-10 min-h-[22rem] overflow-hidden rounded-3xl border border-sky-100/30 glass cinematic-glow lg:min-h-[25rem]" data-route-card>
+              <span class="route-under-glow" aria-hidden="true"></span>
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1800&q=80&fm=webp"
+                alt="Titan Tuna Expedition"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';"
+              />
+              <div class="absolute inset-0 route-grain-overlay"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+              <div class="absolute bottom-0 p-6 sm:p-7">
+                <div class="route-price-badge mb-4 inline-flex rounded-full border border-cyan-200/45 bg-cyan-300/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-100">From $2,490</div>
+                <h3 class="font-display text-2xl font-semibold">Titan Tuna Expedition</h3>
+                <p class="mt-2 text-sm text-slate-200">12-hour offshore route with sonar-led targeting and chef-prepared meals onboard.</p>
+              </div>
+            </article>
+
+            <article class="route-card route-card-sweep group relative z-20 min-h-[22rem] overflow-hidden rounded-3xl border border-sky-100/30 glass cinematic-glow lg:mt-10 lg:min-h-[25rem] lg:-ml-8" data-route-card>
+              <span class="route-under-glow" aria-hidden="true"></span>
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1800&q=80&fm=webp"
+                alt="Blue Marlin Pursuit"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';"
+              />
+              <div class="absolute inset-0 route-grain-overlay"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+              <div class="absolute bottom-0 p-6 sm:p-7">
+                <div class="route-price-badge mb-4 inline-flex rounded-full border border-cyan-200/45 bg-cyan-300/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-100">From $2,950</div>
+                <h3 class="font-display text-2xl font-semibold">Blue Marlin Pursuit</h3>
+                <p class="mt-2 text-sm text-slate-200">Legend-grade sport fishing with tournament-level crew strategy and luxury deck lounge.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl 2xl:max-w-[90rem] px-4 pb-20 sm:px-6 lg:px-10" data-reveal data-crew-section>
+        <div class="crew-shell relative isolate overflow-hidden rounded-3xl p-6 sm:p-8 lg:p-10">
+          <span class="crew-light crew-light-a" data-crew-parallax aria-hidden="true"></span>
+          <span class="crew-light crew-light-b" data-crew-parallax aria-hidden="true"></span>
+          <svg class="crew-compass" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="100" cy="100" r="64" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <path d="M100 34 L118 100 L100 166 L82 100 Z" fill="none" stroke="currentColor" stroke-width="1.8" />
+          </svg>
+
+          <div class="relative z-10 mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-[0.28em] text-cyan-200/90">Crew</p>
+              <h2 class="font-display text-3xl font-bold text-white">Scroll Snap Captain Section</h2>
+            </div>
+            <span class="text-xs uppercase tracking-[0.2em] text-slate-300">Swipe on mobile</span>
+          </div>
+
+          <div class="crew-snap-row relative z-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3">
+            <article class="crew-card group relative min-w-[88%] snap-center sm:min-w-[62%] lg:min-w-[34%]" data-crew-card>
+              <div class="relative h-52 overflow-hidden rounded-2xl">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Captain Elias Ward" class="crew-image absolute inset-0 h-full w-full object-cover" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+                <div class="crew-image-overlay absolute inset-0"></div>
+                <span class="absolute left-3 top-3 rounded-full border border-cyan-200/45 bg-cyan-300/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-100">Deep-Water Elite</span>
+              </div>
+              <div class="crew-card-body mt-5 flex flex-1 flex-col">
+                <h3 class="font-display text-3xl font-semibold leading-tight text-white">Captain Elias Ward</h3>
+                <p class="mt-3 flex-1 text-base text-slate-200">Deep-water specialist with 18 years in pelagic migration routes and tournament-grade offshore strategy.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.16em] text-cyan-100">
+                  <span class="crew-chip">18 Years</span>
+                  <span class="crew-chip">Tuna Focus</span>
+                  <span class="crew-chip">4.9 Rating</span>
+                </div>
+                <a href="services.html" class="mt-5 inline-flex w-fit rounded-full border border-cyan-200/45 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">View Captain</a>
+              </div>
+            </article>
+
+            <article class="crew-card group relative min-w-[88%] snap-center sm:min-w-[62%] lg:min-w-[34%]" data-crew-card>
+              <div class="relative h-52 overflow-hidden rounded-2xl">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Captain Nia Solis" class="crew-image absolute inset-0 h-full w-full object-cover" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+                <div class="crew-image-overlay absolute inset-0"></div>
+                <span class="absolute left-3 top-3 rounded-full border border-cyan-200/45 bg-cyan-300/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-100">Sport Tactician</span>
+              </div>
+              <div class="crew-card-body mt-5 flex flex-1 flex-col">
+                <h3 class="font-display text-3xl font-semibold leading-tight text-white">Captain Nia Solis</h3>
+                <p class="mt-3 flex-1 text-base text-slate-200">Sport charter tactician focused on marlin, sailfish, and fast-water tracking with precision deck execution.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.16em] text-cyan-100">
+                  <span class="crew-chip">12 Years</span>
+                  <span class="crew-chip">Marlin Runs</span>
+                  <span class="crew-chip">5.0 Rating</span>
+                </div>
+                <a href="services.html" class="mt-5 inline-flex w-fit rounded-full border border-cyan-200/45 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">View Captain</a>
+              </div>
+            </article>
+
+            <article class="crew-card group relative min-w-[88%] snap-center sm:min-w-[62%] lg:min-w-[34%]" data-crew-card>
+              <div class="relative h-52 overflow-hidden rounded-2xl">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Captain Rowan Pike" class="crew-image absolute inset-0 h-full w-full object-cover" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+                <div class="crew-image-overlay absolute inset-0"></div>
+                <span class="absolute left-3 top-3 rounded-full border border-cyan-200/45 bg-cyan-300/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-100">Luxury Family</span>
+              </div>
+              <div class="crew-card-body mt-5 flex flex-1 flex-col">
+                <h3 class="font-display text-3xl font-semibold leading-tight text-white">Captain Rowan Pike</h3>
+                <p class="mt-3 flex-1 text-base text-slate-200">Luxury family charters with safety-first navigation, concierge hospitality, and relaxed premium pacing.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.16em] text-cyan-100">
+                  <span class="crew-chip">15 Years</span>
+                  <span class="crew-chip">Family Routes</span>
+                  <span class="crew-chip">4.8 Rating</span>
+                </div>
+                <a href="services.html" class="mt-5 inline-flex w-fit rounded-full border border-cyan-200/45 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">View Captain</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl 2xl:max-w-[90rem] px-4 pb-20 sm:px-6 lg:px-10" data-reveal data-ocean-stage-section>
+        <div class="ocean-stage-shell relative isolate overflow-hidden rounded-3xl p-6 sm:p-8 lg:p-10">
+          <span class="ocean-stage-glow ocean-stage-glow-a" data-stage-parallax aria-hidden="true"></span>
+          <span class="ocean-stage-glow ocean-stage-glow-b" data-stage-parallax aria-hidden="true"></span>
+          <svg class="ocean-stage-compass" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="100" cy="100" r="64" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <path d="M100 34 L118 100 L100 166 L82 100 Z" fill="none" stroke="currentColor" stroke-width="1.8" />
+          </svg>
+
+          <div class="relative z-10 mb-7 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-[0.28em] text-sky-200/90">Content Studio</p>
+              <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Expedition Cinema Deck</h2>
+            </div>
+            <a href="gallery.html" class="rounded-full border border-cyan-200/40 bg-cyan-300/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100 hover:bg-cyan-300/20">Open Full Gallery</a>
+          </div>
+
+          <div class="relative z-10 grid gap-5 xl:grid-cols-12">
+            <article class="ocean-stage-card ocean-stage-feature group relative min-h-[25rem] overflow-hidden rounded-3xl border border-sky-200/30 xl:col-span-7 xl:min-h-[32rem]" data-stage-card>
+              <img loading="lazy" src="https://images.unsplash.com/photo-1568741003583-8d61f9813d23?auto=format&fit=crop&w=1800&q=80&fm=webp" alt="Night marlin charter highlight" class="ocean-stage-image absolute inset-0 h-full w-full object-cover" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+              <div class="ocean-stage-overlay absolute inset-0"></div>
+              <div class="ocean-stage-grain absolute inset-0"></div>
+              <div class="absolute bottom-0 p-7 sm:p-8">
+                <p class="text-xs uppercase tracking-[0.2em] text-cyan-100/90">Feature Reel</p>
+                <h3 class="mt-2 font-display text-3xl font-semibold text-white">Midnight Marlin Circuit</h3>
+                <p class="mt-3 max-w-xl text-sm text-slate-200">A high-speed bluewater chase with live sonar guidance, coordinated deck calls, and a final strike under moonlight.</p>
+                <div class="mt-5 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.16em] text-cyan-100">
+                  <span class="ocean-stage-chip">16:9 Master Cut</span>
+                  <span class="ocean-stage-chip">4K Drone Frames</span>
+                  <span class="ocean-stage-chip">Cinematic Audio</span>
+                </div>
+              </div>
+            </article>
+
+            <div class="space-y-5 xl:col-span-5">
+              <article class="ocean-stage-card group relative min-h-[15.5rem] overflow-hidden rounded-3xl border border-sky-200/30" data-stage-card>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1493962853295-0fd70327578a?auto=format&fit=crop&w=1500&q=80&fm=webp" alt="Sunrise catch session" class="ocean-stage-image absolute inset-0 h-full w-full object-cover" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+                <div class="ocean-stage-overlay absolute inset-0"></div>
+                <div class="ocean-stage-grain absolute inset-0"></div>
+                <div class="absolute bottom-0 p-6">
+                  <p class="text-xs uppercase tracking-[0.2em] text-cyan-100/90">Deck Moment</p>
+                  <h3 class="mt-2 font-display text-2xl font-semibold text-white">Sunrise Trophy Sequence</h3>
+                  <p class="mt-2 text-sm text-slate-200">Three consecutive hook-ups in 11 minutes captured from bow and drone angles.</p>
+                </div>
+              </article>
+
+              <article class="ocean-stage-card relative min-h-[15.5rem] overflow-hidden rounded-3xl border border-sky-200/30 p-6 sm:p-7" data-stage-card>
+                <div class="absolute inset-0 bg-gradient-to-br from-cyan-300/12 via-slate-900/18 to-sky-300/10"></div>
+                <div class="relative z-10">
+                  <p class="text-xs uppercase tracking-[0.2em] text-cyan-100/90">Production Log</p>
+                  <h3 class="mt-2 font-display text-2xl font-semibold text-white">Director's Cut Notes</h3>
+                  <ul class="mt-4 space-y-3 text-sm text-slate-200">
+                    <li class="rounded-xl border border-slate-200/15 bg-slate-950/35 px-3 py-2">Route: Outer Reef to cobalt drop-off lane</li>
+                    <li class="rounded-xl border border-slate-200/15 bg-slate-950/35 px-3 py-2">Capture Window: 05:10 - 09:35 local time</li>
+                    <li class="rounded-xl border border-slate-200/15 bg-slate-950/35 px-3 py-2">Highlights: triple strike + release + chef deck close-up</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="relative z-10 mt-5 grid gap-4 md:grid-cols-3">
+            <article class="ocean-stage-tile" data-stage-card>
+              <p class="text-xs uppercase tracking-[0.16em] text-cyan-100">Reel Runtime</p>
+              <p class="mt-2 text-2xl font-semibold text-white">08m 42s</p>
+            </article>
+            <article class="ocean-stage-tile" data-stage-card>
+              <p class="text-xs uppercase tracking-[0.16em] text-cyan-100">Featured Anglers</p>
+              <p class="mt-2 text-2xl font-semibold text-white">27 Guests</p>
+            </article>
+            <article class="ocean-stage-tile" data-stage-card>
+              <p class="text-xs uppercase tracking-[0.16em] text-cyan-100">Signature Releases</p>
+              <p class="mt-2 text-2xl font-semibold text-white">112 Clips</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative overflow-hidden px-4 pb-24 sm:px-6 lg:px-10" data-voyages-section>
+        <div class="voyages-shell relative mx-auto max-w-7xl 2xl:max-w-[90rem] overflow-hidden rounded-3xl p-8 lg:p-10">
+          <span class="voyages-light voyages-light-a" data-voyage-parallax aria-hidden="true"></span>
+          <span class="voyages-light voyages-light-b" data-voyage-parallax aria-hidden="true"></span>
+          <svg class="voyages-compass" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="100" cy="100" r="64" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <path d="M100 34 L118 100 L100 166 L82 100 Z" fill="none" stroke="currentColor" stroke-width="1.8" />
+          </svg>
+          <svg class="voyages-fish voyages-fish-a" viewBox="0 0 120 60" aria-hidden="true">
+            <path d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z" fill="none" stroke="currentColor" stroke-width="2.1" />
+          </svg>
+          <svg class="voyages-fish voyages-fish-b" viewBox="0 0 120 60" aria-hidden="true">
+            <path d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z" fill="none" stroke="currentColor" stroke-width="2.1" />
+          </svg>
+          <svg class="voyages-fish voyages-fish-c" viewBox="0 0 120 60" aria-hidden="true">
+            <path d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z" fill="none" stroke="currentColor" stroke-width="2.1" />
+          </svg>
+
+          <div class="relative z-10 mb-8">
+            <p class="text-xs uppercase tracking-[0.24em] text-cyan-100">Guest Chronicles</p>
+            <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Voyages of Distinction</h2>
+          </div>
+
+          <div class="voyages-grid relative z-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:items-stretch">
+            <article class="voyages-card group relative order-2 min-h-[23rem] overflow-hidden rounded-3xl border border-sky-200/30 md:min-h-[24rem] xl:order-1" data-voyage-card>
+              <img
+                src="https://images.unsplash.com/photo-1544551763-92ab472cad5d?auto=format&fit=crop&w=1500&q=80&fm=webp"
+                alt="Guest story on deep sea hunt"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-transparent"></div>
+              <div class="absolute inset-0 voyages-grain"></div>
+              <div class="absolute bottom-0 p-6">
+                <p class="text-xs uppercase tracking-[0.18em] text-cyan-100/90">Avery Collins - Tuna Run</p>
+                <p class="mt-3 text-sm text-slate-200">We tracked the first silver flash before dawn and landed the biggest yellowfin of our season by breakfast.</p>
+                <p class="mt-3 text-amber-200">Rating: 5.0/5</p>
+                <a href="blog.html" class="mt-4 inline-flex rounded-full border border-cyan-200/40 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">Read Story</a>
+              </div>
+            </article>
+
+            <article class="voyages-card voyages-featured group relative order-1 min-h-[27rem] overflow-hidden rounded-3xl border border-sky-200/30 md:col-span-2 xl:order-2 xl:col-span-1" data-voyage-card>
+              <img
+                src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=1800&q=80&fm=webp"
+                alt="Featured charter guest story"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+              <div class="absolute inset-0 voyages-grain"></div>
+              <div class="absolute bottom-0 p-7">
+                <p class="text-xs uppercase tracking-[0.18em] text-cyan-100/90">Charlotte Reyes - Blue Marlin Pursuit</p>
+                <p class="mt-3 text-sm text-slate-200">From golden sunrise to final reel-in, the crew orchestrated every move with precision and five-star hospitality.</p>
+                <p class="mt-3 text-amber-200">Rating: 5.0/5</p>
+                <a href="blog.html" class="mt-4 inline-flex rounded-full border border-cyan-200/45 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">Read Story</a>
+              </div>
+            </article>
+
+            <article class="voyages-card group relative order-3 min-h-[23rem] overflow-hidden rounded-3xl border border-sky-200/30 md:min-h-[24rem] xl:order-3" data-voyage-card>
+              <img
+                src="https://images.unsplash.com/photo-1448518184296-a22facb4446f?auto=format&fit=crop&w=1500&q=80&fm=webp"
+                alt="Guest story from sunset charter"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-transparent"></div>
+              <div class="absolute inset-0 voyages-grain"></div>
+              <div class="absolute bottom-0 p-6">
+                <p class="text-xs uppercase tracking-[0.18em] text-cyan-100/90">Mason Reed - Sunset Prestige</p>
+                <p class="mt-3 text-sm text-slate-200">The sunset route felt cinematic, and every detail from deck service to navigation was world-class.</p>
+                <p class="mt-3 text-amber-200">Rating: 5.0/5</p>
+                <a href="blog.html" class="mt-4 inline-flex rounded-full border border-cyan-200/40 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">Read Story</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl 2xl:max-w-[90rem] px-4 pb-24 sm:px-6 lg:px-10" data-reveal>
+        <div class="relative overflow-hidden rounded-3xl border border-sky-100/20 bg-gradient-to-r from-cyan-300/30 via-sky-400/20 to-amber-200/30 p-8 text-slate-950 sm:p-10">
+          <div class="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-white/40 blur-2xl"></div>
+          <h2 class="font-display text-3xl font-bold sm:text-4xl">Cinematic Charter, Ready on Your Signal</h2>
+          <p class="mt-4 max-w-2xl text-sm font-medium sm:text-base">Reserve your vessel, lock your captain, and tailor your route in minutes using our premium booking flow.</p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="booking.html" class="rounded-xl bg-slate-950 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-sky-100 transition hover:bg-slate-800">Start Booking</a>
+            <a href="dashboard.html" class="rounded-xl border border-slate-900/30 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-900 transition hover:bg-slate-900/10">Open Dashboard</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="premium-footer-shell px-4 pb-6 pt-10 sm:px-6 lg:px-10">
+  <div class="mx-auto max-w-7xl 2xl:max-w-[90rem]">
+    <div class="premium-footer-top grid gap-8 p-6 sm:p-8 lg:grid-cols-4 lg:p-10">
+      <div>
+        <a href="fish.home.html" class="premium-footer-brand inline-flex items-center gap-3">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0E2A3A]/25 bg-white/45">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+            </svg>
+          </span>
+          Aurelius Charters
+        </a>
+        <p class="premium-footer-copy mt-4">Luxury yacht charter journeys engineered for precision, comfort, and cinematic open-water moments.</p>
+        <div class="mt-5 flex items-center gap-3">
+          <a href="#" class="premium-footer-social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" /></svg>
+          </a>
+          <a href="#" class="premium-footer-social" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 10v7M8 7h.01M12 17v-4a3 3 0 0 1 6 0v4" /><rect x="3" y="3" width="18" height="18" rx="2" /></svg>
+          </a>
+          <a href="#" class="premium-footer-social" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.8" y="6.2" width="18.4" height="11.6" rx="3" /><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="premium-footer-heading">Quick Links</h3>
+        <ul class="premium-footer-list">
+          <li><a href="fish.home.html" class="premium-footer-link">Home</a></li>
+          <li><a href="index-v2.html" class="premium-footer-link">Home V2</a></li>
+          <li><a href="booking.html" class="premium-footer-link">Booking</a></li>
+          <li><a href="services.html" class="premium-footer-link">Services</a></li>
+          <li><a href="gallery.html" class="premium-footer-link">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="premium-footer-heading">Visit & Contact</h3>
+        <div class="premium-footer-list premium-footer-meta">
+          <p>Pier 9, Marina Bay, Coastal District</p>
+          <p>+1 (305) 555-0148</p>
+          <p>concierge@aureliuscharters.com</p>
+          <p>Daily: 05:00 AM - 11:00 PM</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="premium-footer-heading">Newsletter</h3>
+        <p class="premium-footer-copy mt-3">Receive route insights, departure windows, and premium trip releases.</p>
+        <form class="mt-4 grid gap-3" data-demo-form>
+          <input type="email" required placeholder="Email address" class="premium-footer-input" />
+          <button type="submit" class="premium-footer-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="premium-footer-bottom mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <p class="premium-footer-meta">(c) 2026 Aurelius Charters. All rights reserved.</p>
+      <div class="flex flex-wrap items-center gap-4 text-sm">
+        <a href="#" class="premium-footer-policy">Privacy Policy</a>
+        <a href="#" class="premium-footer-policy">Terms of Service</a>
+        <a href="#" class="premium-footer-policy">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/pages.js"></script>
+  <script defer src="assets/js/home.js"></script>
+</body>
+</html>
+
